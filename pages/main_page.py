@@ -9,9 +9,7 @@ class MainPage(Page):
     HEADER_TITLE = (By.XPATH, "//div[contains(text(),'Total projects')]")
     SECONDARY_BTN = (By.XPATH, "//*[@class='w-layout-grid menu_grid']//div[text()='Secondary']")
     FILTERS_BTN = (By.CSS_SELECTOR, "[class='filter-button']")
-    MORE_FILTERS_MSG = (By.CSS_SELECTOR, "[class='h1-filters']")
     WANT_TO_SELL_BTN = (By.XPATH, "//div[contains(text(),'Want to sell')]")
-    LISTING_TYPE_MSG = (By.XPATH, "//div[contains(text(),'Listing type')]")
     APPLY_FILTER_BTN = (By.CSS_SELECTOR, "[wized='applyFilterButtonMLS']")
     # FOR_SALE_TAGS = (By.CSS_SELECTOR, "[class='listing-card']")
     FOR_SALE_TAGS = (By.XPATH, "//*[@class='listing-card']//div[text()='For sale']")
@@ -25,10 +23,9 @@ class MainPage(Page):
 
     def click_filters(self):
         self.wait_and_click(*self.FILTERS_BTN)
-        self.wait_for_element_appear(*self.MORE_FILTERS_MSG)
+        # self.wait_for_element_appear(*self.MORE_FILTERS_MSG)
 
     def select_want_to_sell_criteria(self):
-        self.wait_for_element_appear(*self.LISTING_TYPE_MSG)
         self.wait_and_click(*self.WANT_TO_SELL_BTN)
 
     def click_apply_filter(self):

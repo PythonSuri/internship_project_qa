@@ -2,8 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from behave import when, then
-from selenium.webdriver.common.by import By
 
+from selenium.webdriver.common.by import By
 from time import sleep
 
 
@@ -17,21 +17,21 @@ def click_secondary_opt(context):
     context.app.main_page.click_secondary_opt()
 
 
-@when('Click on Filters')
+@when('Click on Filters button')
 def click_filters(context):
     context.app.main_page.click_filters()
 
 
-@when('Filter the products by "Want to sell"')
+@when('Filter the products by "Want to sell" criteria')
 def select_want_to_sell_criteria(context):
     context.app.main_page.select_want_to_sell_criteria()
 
 
-@when('Click on Apply Filter')
+@when('Click on Apply Filter button')
 def click_apply_filter(context):
     context.app.main_page.click_apply_filter()
 
 
-@then('Verify all cards have "For sale" tag')
+@then('Verify all deal cards display "For sale" tag')
 def verify_filter_results(context):
     context.app.main_page.verify_filter_results()
