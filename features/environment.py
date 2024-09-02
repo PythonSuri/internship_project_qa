@@ -19,24 +19,16 @@ def browser_init(context, scenario_name):
     :param context: Behave context
     """
 
-    driver_path = './chromedriver'
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
-
-    # driver_path = GeckoDriverManager().install()
-    # service = Service(driver_path)
-    # context.driver = webdriver.Firefox(service=service)
-
-    # context.driver = webdriver.Safari()
-
     ### BROWSERS WITH DRIVERS: provide path to the driver file ###
     # service = Service(executable_path='/Users/svetlanalevinsohn/careerist/19-python-selenium-automation/geckodriver')
-    # context.driver = webdriver.Firefox(service=service)
 
-    ### SAFARI ###
-    # context.driver = webdriver.Safari()
+    #############################################################
+    ### Chrome ###
+    # driver_path = './chromedriver'
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
 
-    ### HEADLESS MODE ####
+    ### HEADLESS MODE CHROME ####
     # options = webdriver.ChromeOptions()
     # options.add_argument('headless')
     # service = Service(ChromeDriverManager().install())
@@ -44,6 +36,26 @@ def browser_init(context, scenario_name):
     #     options=options,
     #     service=service
     # )
+
+    ##############################################################
+    ### Firefox ###
+    driver_path = GeckoDriverManager().install()
+    service = Service(driver_path)
+    context.driver = webdriver.Firefox(service=service)
+
+    ### HEADLESS MODE Firefox####
+    # options = webdriver.FirefoxOptions()
+    # options.add_argument('headless')
+    # service = Service(executable_path='/Users/surayya/Downloads/internship_project_qa/geckodriver')
+    # context.driver = webdriver.Firefox(
+    #     options=options,
+    #     service=service
+    # )
+
+    ############################################################
+    ### SAFARI ###
+    # context.driver = webdriver.Safari()
+
 
     # BROWSERSTACK ##
     # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings

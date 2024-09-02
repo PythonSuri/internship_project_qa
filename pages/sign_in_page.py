@@ -1,4 +1,7 @@
 from selenium.webdriver.common.by import By
+
+from selenium.webdriver.support import expected_conditions as EC
+
 from pages.base_page import Page
 
 
@@ -7,9 +10,9 @@ class SignInPage(Page):
     CONTINUE_BTN = (By.CSS_SELECTOR, "[wized='loginButton']")
     EMAIL_FIELD = (By.CSS_SELECTOR, "[wized='emailInput'][placeholder='Email']")
     PASSWORD_FIELD = (By.CSS_SELECTOR, "[wized='passwordInput'][placeholder='Password']")
-    EMAIL = '********'  # => VALID EMAIL ********
+    EMAIL = 'suri.careerist@gmail.com'  # => VALID EMAIL ********
     # USE INVALID EMAIL for Negative Scenario
-    PASSWORD = '********'  # => VALID PASSWORD ********
+    PASSWORD = '123456@Suri'  # => VALID PASSWORD ********
     # USE INVALID PASSWORD for Negative Scenario
     USER_LOGGED_PAGE = (By.CSS_SELECTOR, "[class='page-title off_plan']")
 
