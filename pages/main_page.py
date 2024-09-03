@@ -1,17 +1,17 @@
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from pages.base_page import Page
 from selenium.webdriver.common.action_chains import ActionChains
 
+from selenium.webdriver.common.by import By
 from time import sleep
+from pages.base_page import Page
 
 
 class MainPage(Page):
     HEADER_TITLE = (By.XPATH, "//div[contains(text(),'Total projects')]")
     SECONDARY_BTN = (By.XPATH, "//*[@class='w-layout-grid menu_grid']//div[text()='Secondary']")
     FILTERS_BTN = (By.CSS_SELECTOR, "[class='filter-button']")
-    WANT_TO_SELL_BTN = (By.XPATH, "//div[contains(text(),'Want to sell')]")
-    APPLY_FILTER_BTN = (By.CSS_SELECTOR, "[wized='applyFilterButtonMLS']")
+    WANT_TO_SELL_BTN = (By.CSS_SELECTOR, '[wized="ListingTypeSell"]')
+    APPLY_FILTER_BTN = (By.XPATH, "//a[wized='applyFilterButtonMLS']//div[text()='Apply filter']")
     # FOR_SALE_TAGS = (By.CSS_SELECTOR, "[class='listing-card']")
     FOR_SALE_TAGS = (By.XPATH, "//*[@class='listing-card']//div[text()='For sale']")
 
@@ -24,7 +24,6 @@ class MainPage(Page):
 
     def click_filters(self):
         self.wait_and_click(*self.FILTERS_BTN)
-        # self.wait_for_element_appear(*self.MORE_FILTERS_MSG)
 
     def select_want_to_sell_criteria(self):
         self.wait_and_click(*self.WANT_TO_SELL_BTN)

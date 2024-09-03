@@ -24,9 +24,9 @@ def browser_init(context, scenario_name):
 
     #############################################################
     ### Chrome ###
-    # driver_path = './chromedriver'
-    # service = Service(driver_path)
-    # context.driver = webdriver.Chrome(service=service)
+    driver_path = './chromedriver'
+    service = Service(driver_path)
+    context.driver = webdriver.Chrome(service=service)
 
     ### HEADLESS MODE CHROME ####
     # options = webdriver.ChromeOptions()
@@ -39,15 +39,15 @@ def browser_init(context, scenario_name):
 
     ##############################################################
     ### Firefox ###
-    driver_path = GeckoDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Firefox(service=service)
+    # driver_path = GeckoDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Firefox(service=service)
 
     ### HEADLESS MODE Firefox####
-    options = webdriver.FirefoxOptions()
-    options.add_argument('headless')
-    service = Service(executable_path='/Users/surayya/Downloads/internship_project_qa/geckodriver')
-    context.driver = webdriver.Firefox(service=service, options=options)
+    # options = webdriver.FirefoxOptions()
+    # options.add_argument('headless')
+    # service = Service(executable_path='/Users/surayya/Downloads/internship_project_qa/geckodriver')
+    # context.driver = webdriver.Firefox(service=service, options=options)
 
     ############################################################
     ### SAFARI ###
