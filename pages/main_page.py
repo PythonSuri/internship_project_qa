@@ -11,8 +11,7 @@ class MainPage(Page):
     SECONDARY_BTN = (By.XPATH, "//*[@class='w-layout-grid menu_grid']//div[text()='Secondary']")
     FILTERS_BTN = (By.CSS_SELECTOR, "[class='filter-button']")
     WANT_TO_SELL_BTN = (By.CSS_SELECTOR, '[wized="ListingTypeSell"]')
-    APPLY_FILTER_BTN = (By.XPATH, "//a[wized='applyFilterButtonMLS']//div[text()='Apply filter']")
-    # FOR_SALE_TAGS = (By.CSS_SELECTOR, "[class='listing-card']")
+    APPLY_FILTER_BTN = (By.CSS_SELECTOR, 'a[wized="applyFilterButtonMLS"]')
     FOR_SALE_TAGS = (By.XPATH, "//*[@class='listing-card']//div[text()='For sale']")
 
     def verify_header_title(self):
@@ -20,9 +19,11 @@ class MainPage(Page):
         self.verify_text('Total projects', *self.HEADER_TITLE)
 
     def click_secondary_opt(self):
+        sleep(5)
         self.wait_and_click(*self.SECONDARY_BTN)
 
     def click_filters(self):
+        sleep(5)
         self.wait_and_click(*self.FILTERS_BTN)
 
     def select_want_to_sell_criteria(self):

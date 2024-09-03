@@ -45,7 +45,7 @@ def browser_init(context, scenario_name):
 
     ### HEADLESS MODE Firefox####
     # options = webdriver.FirefoxOptions()
-    # options.add_argument('headless')
+    # options.add_argument('--headless')
     # service = Service(executable_path='/Users/surayya/Downloads/internship_project_qa/geckodriver')
     # context.driver = webdriver.Firefox(service=service, options=options)
 
