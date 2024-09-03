@@ -56,16 +56,20 @@ def browser_init(context, scenario_name):
 
     # BROWSERSTACK ##
     # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
-    # bs_user = 'suriaziz_cDPzFk'
-    # bs_key = 'CNhLSuXeLXzsFFjLBuqf'
-    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-    #
-    # options = Options()
-    # bstack_options = {
-    #     'browserName': 'chrome'
-    # }
-    # options.set_capability('bstack:options', bstack_options)
-    # context.driver = webdriver.Remote(command_executor=url, options=options)
+    # Select a browser and operating system to test: https://www.browserstack.com/docs/automate/capabilities
+    bs_user = 'suriaziz_cDPzFk'
+    bs_key = 'CNhLSuXeLXzsFFjLBuqf'
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+
+    options = Options()
+    bstack_options = {
+        "os": "Windows",
+        "osVersion": "11",
+        'browserName': 'chrome',
+        "sessionName": "scenario_name",
+    }
+    options.set_capability('bstack:options', bstack_options)
+    context.driver = webdriver.Remote(command_executor=url, options=options)
 
     context.driver.maximize_window()
     context.driver.implicitly_wait(4)
@@ -74,10 +78,10 @@ def browser_init(context, scenario_name):
     context.app = Application(context.driver)
 
 
-def before_scenario(context, scenario):
-    print('\nStarted scenario: ', scenario.name)
-    logger.info(f'\nStarted scenario: {scenario.name}')
-    browser_init(context, scenario.name)
+def before_scenario(context, scenario_name):
+    print('\nStarted scenario: ', scenario_name)
+    logger.info(f'\nStarted scenario: {scenario_name}')
+    browser_init(context, scenario_name)
 
 
 def before_step(context, step):

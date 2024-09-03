@@ -10,9 +10,9 @@ class SignInPage(Page):
     CONTINUE_BTN = (By.CSS_SELECTOR, "[wized='loginButton']")
     EMAIL_FIELD = (By.CSS_SELECTOR, "[wized='emailInput'][placeholder='Email']")
     PASSWORD_FIELD = (By.CSS_SELECTOR, "[wized='passwordInput'][placeholder='Password']")
-    EMAIL = 'suri.careerist@gmail.com'  # => VALID EMAIL ********
+    EMAIL = '********'  # => VALID EMAIL ********
     # USE INVALID EMAIL for Negative Scenario
-    PASSWORD = '123456@Suri'  # => VALID PASSWORD ********
+    PASSWORD = '********'  # => VALID PASSWORD ********
     # USE INVALID PASSWORD for Negative Scenario
     USER_LOGGED_PAGE = (By.CSS_SELECTOR, "[class='page-title off_plan']")
 
