@@ -8,7 +8,8 @@ from pages.base_page import Page
 
 class MainPage(Page):
     HEADER_TITLE = (By.XPATH, "//div[contains(text(),'Total projects')]")
-    SECONDARY_BTN = (By.XPATH, "//*[@class='w-layout-grid menu_grid']//div[text()='Secondary']")
+    # SECONDARY_BTN = (By.XPATH, "//*[@class='w-layout-grid menu_grid']//div[text()='Secondary']")  ## web version
+    SECONDARY_BTN = (By.CSS_SELECTOR, "a[wized='mobileTabGame']")  ## mobile version
     FILTERS_BTN = (By.CSS_SELECTOR, "[class='filter-button']")
     WANT_TO_SELL_BTN = (By.CSS_SELECTOR, '[wized="ListingTypeSell"]')
     APPLY_FILTER_BTN = (By.CSS_SELECTOR, 'a[wized="applyFilterButtonMLS"]')
