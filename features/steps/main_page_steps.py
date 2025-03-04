@@ -36,8 +36,33 @@ def click_apply_filter(context):
     context.app.main_page.click_apply_filter()
 
 
+@when('Click on "Off-plan" at the left side menu')
+def click_off_plan_opt(context):
+    context.app.main_page.click_off_plan_opt()
+
+
+@when('Off-plan page opens')
+def verify_off_plan_page_title(context):
+    context.app.main_page.verify_off_plan_page_title()
+
+@when('Click on Sales status button')
+def click_sales_status(context):
+    sleep(5)
+    context.app.main_page.click_sales_status()
+
+
+@when('Filter the sales status by "Announced" criteria')
+def select_announced_criteria(context):
+    context.app.main_page.select_announced_criteria()
+
+
 @then('Verify all deal cards display "For sale" tag')
 def verify_filter_results(context):
     sleep(5)
     context.app.main_page.verify_filter_results()
 
+
+@then('Verify each deal card contains the "Announced" tag')
+def verify_deal_cards(context):
+    sleep(5)
+    context.app.main_page.verify_deal_cards()

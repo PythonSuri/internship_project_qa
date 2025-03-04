@@ -12,4 +12,14 @@ Feature: Tests for main page
      Then   Verify all deal cards display "For sale" tag
 
 
+  Scenario: User can filter Off-plan Sales status by Announced
+     Given  Open Reelly sign in page
+     When   Enter a valid email and password combination
+     When   Click on Continue
+     When   Main page opens
+     When   Click on "Off-plan" at the left side menu
+     When   Off-plan page opens
+     When   Click on Sales status button
+     And    Filter the sales status by "Announced" criteria
+     Then   Verify each deal card contains the "Announced" tag
 

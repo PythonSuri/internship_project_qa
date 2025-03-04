@@ -29,7 +29,8 @@ def browser_init(context, scenario_name):
     ### Chrome ###
     # driver_path = './chromedriver'
     # service = Service(driver_path)
-    # context.driver = webdriver.Chrome(service=service)
+    service = Service(ChromeDriverManager().install())
+    context.driver = webdriver.Chrome(service=service)
 
     ### HEADLESS MODE CHROME ####
     # options = webdriver.ChromeOptions()
@@ -60,29 +61,29 @@ def browser_init(context, scenario_name):
     # BROWSERSTACK ##
     # Register for BrowserStack, then grab it from https://www.browserstack.com/accounts/settings
     # Select a browser and operating system to test: https://www.browserstack.com/docs/automate/capabilities
-    bs_user = 'suriaziz_cDPzFk'
-    bs_key = 'CNhLSuXeLXzsFFjLBuqf'
-    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-
-    options = Options()
-    bstack_options = {
-        "os": "Windows",
-        "deviceName": "Samsung Galaxy S20 Ultra",
-        "osVersion": "11",
-        'browserName': "chrome",
-        "sessionName": "scenario_name"
-    }
-    options.set_capability('bstack:options', bstack_options)
-    context.driver = webdriver.Remote(command_executor=url, options=options)
+    # bs_user = 'suriaziz_cDPzFk'
+    # bs_key = 'CNhLSuXeLXzsFFjLBuqf'
+    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+    #
+    # options = Options()
+    # bstack_options = {
+    #     "os": "Windows",
+    #     "deviceName": "Samsung Galaxy S20 Ultra",
+    #     "osVersion": "11",
+    #     'browserName': "chrome",
+    #     "sessionName": "scenario_name"
+    # }
+    # options.set_capability('bstack:options', bstack_options)
+    # context.driver = webdriver.Remote(command_executor=url, options=options)
 
 
     ## Mobile Emulation CHROME##
-    chrome_options = webdriver.ChromeOptions()
-    mobile_emulation = {"deviceName": "Samsung Galaxy S20 Ultra"}
-    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
-    driver_path = ChromeDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service, options=chrome_options)
+    # chrome_options = webdriver.ChromeOptions()
+    # mobile_emulation = {"deviceName": "Samsung Galaxy S20 Ultra"}
+    # chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service, options=chrome_options)
 
 
     context.driver.maximize_window()
