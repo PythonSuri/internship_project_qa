@@ -19,7 +19,8 @@ class MainPage(Page):
     SALES_STATUS_BTN = (By.CSS_SELECTOR, '[wized="saleStatusFilter"]')
     ANNOUNCED_BTN = By.CSS_SELECTOR, "option[value='Announced']"
     ANNOUNCED_TAGS = (By.XPATH, "//div[@wized='projectsListing']//div[text()='Announced']")
-
+    PRESALE_BTN = By.CSS_SELECTOR, "option[value='Presale(EOI)']"
+    PRESALE_TAGS = (By.XPATH, "//div[@wized='projectsListing']//div[text()='Presale(EOI)']")
 
     def verify_header_title(self):
         self.wait_for_element_appear(*self.HEADER_TITLE)
@@ -59,10 +60,16 @@ class MainPage(Page):
         sleep(2)
         self.wait_for_element_appear(*self.ANNOUNCED_BTN)
         self.wait_and_click(*self.ANNOUNCED_BTN)
-    # def select_announced_criteria(self):
-    #     sleep(5)
-    #     self.wait_and_click(*self.ANNOUNCED_BTN)
 
     def verify_deal_cards(self):
         self.wait_for_element_appear(*self.ANNOUNCED_TAGS)
         self.verify_text('Announced', *self.ANNOUNCED_TAGS)
+
+    def select_presale_criteria(self):
+        sleep(2)
+        self.wait_for_element_appear(*self.PRESALE_BTN)
+        self.wait_and_click(*self.PRESALE_BTN)
+
+    def verify_product_cards(self):
+        self.wait_for_element_appear(*self.PRESALE_TAGS)
+        self.verify_text('Presale(EOI)', *self.PRESALE_TAGS)

@@ -66,3 +66,14 @@ def verify_filter_results(context):
 def verify_deal_cards(context):
     sleep(5)
     context.app.main_page.verify_deal_cards()
+
+
+@when('Filter the sales status by "Presale(EOI)" criteria')
+def select_presale_criteria(context):
+    context.app.main_page.select_presale_criteria()
+
+
+@then('Verify each deal card contains the "Presale(EOI)" tag')
+def verify_product_cards(context):
+    sleep(5)
+    context.app.main_page.verify_product_cards()
