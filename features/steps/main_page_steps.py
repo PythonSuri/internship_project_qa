@@ -45,6 +45,7 @@ def click_off_plan_opt(context):
 def verify_off_plan_page_title(context):
     context.app.main_page.verify_off_plan_page_title()
 
+
 @when('Click on Sales status button')
 def click_sales_status(context):
     sleep(5)
@@ -56,10 +57,44 @@ def verify_filter_criteria(context):
     context.app.main_page.verify_filter_criteria()
 
 
-
 @when('Filter the sales status by "Announced" criteria')
 def select_announced_criteria(context):
     context.app.main_page.select_announced_criteria()
+
+
+@when('Filter the sales status by "Presale(EOI)" criteria')
+def select_presale_criteria(context):
+    context.app.main_page.select_presale_criteria()
+
+
+@when('Filter the sales status by "Out of stock" criteria')
+def select_out_of_stock_criteria(context):
+    context.app.main_page.select_out_of_stock_criteria()
+
+
+@when('Click on "Market" at the left side menu')
+def click_market_opt(context):
+    context.app.main_page.click_market_opt()
+
+
+@when('Market page opens')
+def verify_market_page_title(context):
+    context.app.main_page.verify_market_page_title()
+
+
+@when('Click on "Add company" button')
+def click_add_company(context):
+    context.app.main_page.click_add_company()
+
+
+@when('Add company page opens')
+def verify_add_company_page_title(context):
+    context.app.main_page.verify_add_company_page_title()
+
+
+@when('Scroll down and click on "View page template" button')
+def click_view_page_template(context):
+    context.app.main_page.click_view_page_template()
 
 
 @then('Verify all deal cards display "For sale" tag')
@@ -74,23 +109,19 @@ def verify_deal_cards(context):
     context.app.main_page.verify_deal_cards()
 
 
-@when('Filter the sales status by "Presale(EOI)" criteria')
-def select_presale_criteria(context):
-    context.app.main_page.select_presale_criteria()
-
-
 @then('Verify each deal card contains the "Presale(EOI)" tag')
 def verify_product_cards(context):
     sleep(5)
     context.app.main_page.verify_product_cards()
 
 
-@when('Filter the sales status by "Out of stock" criteria')
-def select_out_of_stock_criteria(context):
-    context.app.main_page.select_out_of_stock_criteria()
-
-
 @then('Verify each deal card contains the "Out of stock" tag')
 def verify_project_cards(context):
     sleep(5)
     context.app.main_page.verify_project_cards()
+
+
+@then('Verify the button "Send my CV" button is available')
+def verify_cv_button(context):
+    sleep(5)
+    context.app.main_page.verify_cv_button()

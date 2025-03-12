@@ -46,3 +46,16 @@ Feature: Tests for main page
      When   Click on Sales status button
      And    Filter the sales status by "Out of stock" criteria
      Then   Verify each deal card contains the "Out of stock" tag
+
+
+   Scenario: User can open Market tab and go to the view page template
+     Given  Open Reelly sign in page
+     When   Enter a valid email and password combination
+     When   Click on Continue
+     When   Main page opens
+     When   Click on "Market" at the left side menu
+     When   Market page opens
+     When   Click on "Add company" button
+     When   Add company page opens
+     And    Scroll down and click on "View page template" button
+     Then   Verify the button "Send my CV" button is available

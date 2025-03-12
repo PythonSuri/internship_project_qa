@@ -22,8 +22,15 @@ class MainPage(Page):
     ANNOUNCED_TAGS = (By.XPATH, "//div[@wized='projectsListing']//div[text()='Announced']")
     PRESALE_BTN = By.CSS_SELECTOR, "option[value='Presale(EOI)']"
     PRESALE_TAGS = (By.XPATH, "//div[@wized='projectsListing']//div[text()='Presale(EOI)']")
-    OUTOFSTOCK_BTN =  By.CSS_SELECTOR, "option[value='Out of stock']"
+    OUTOFSTOCK_BTN = By.CSS_SELECTOR, "option[value='Out of stock']"
     OUTOFSTOCK_TAGS = (By.XPATH, "//div[@wized='projectsListing']//div[text()='Out of stock']")
+    MARKET_BTN = (By.XPATH, "//*[@class='w-layout-grid menu_grid']//div[text()='Market']")
+    MARKET_PAGE_TITLE = (By.XPATH, "//div[@class='proparties_text_block mobile']//div[text()='Market']")
+    ADD_COMPANY_BTN = (By.XPATH, "//*[@class='add-company-button w-inline-block']//div[text()='Add company']")
+    ADD_COMPANY_PAGE_TITLE = (By.XPATH, "//*[@class='publish-button _1 w-button']")
+    VIEW_PAGE_TEMPLATE_BTN = (By.XPATH, "//*[@class='publish-button color w-button']")
+    SEND_MY_CV_BTN = (By.XPATH, "//*[@class='button-agency w-button']")
+
 
     def verify_header_title(self):
         self.wait_for_element_appear(*self.HEADER_TITLE)
@@ -59,7 +66,6 @@ class MainPage(Page):
         sleep(2)
         self.wait_and_click(*self.SALES_STATUS_BTN)
 
-
     def select_announced_criteria(self):
         sleep(2)
         self.wait_for_element_appear(*self.ANNOUNCED_BTN)
@@ -86,3 +92,29 @@ class MainPage(Page):
     def verify_project_cards(self):
         self.wait_for_element_appear(*self.OUTOFSTOCK_TAGS)
         self.verify_text('Out of stock', *self.OUTOFSTOCK_TAGS)
+
+    def click_market_opt(self):
+        sleep(2)
+        self.wait_and_click(*self.MARKET_BTN)
+
+    def verify_market_page_title(self):
+        self.wait_for_element_appear(*self.MARKET_PAGE_TITLE)
+        self.verify_text('Market', *self.MARKET_PAGE_TITLE)
+
+    def click_add_company(self):
+        sleep(2)
+        self.wait_and_click(*self.ADD_COMPANY_BTN)
+
+    def verify_add_company_page_title(self):
+        self.wait_for_element_appear(*self.ADD_COMPANY_PAGE_TITLE)
+        self.verify_text('Publish my company', *self.ADD_COMPANY_PAGE_TITLE)
+
+    def click_view_page_template(self):
+        sleep(2)
+        self.wait_for_element_appear(*self.VIEW_PAGE_TEMPLATE_BTN)
+        self.wait_and_click(*self.VIEW_PAGE_TEMPLATE_BTN)
+
+    def verify_cv_button(self):
+        sleep(2)
+        self.wait_for_element_appear(*self.SEND_MY_CV_BTN)
+        self.wait_and_click(*self.SEND_MY_CV_BTN)
