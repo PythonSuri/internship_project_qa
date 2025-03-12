@@ -50,6 +50,12 @@ def click_sales_status(context):
     sleep(5)
     context.app.main_page.click_sales_status()
 
+@when('Drop-down list displays filter criteria')
+def verify_filter_criteria(context):
+    sleep(5)
+    context.app.main_page.verify_filter_criteria()
+
+
 
 @when('Filter the sales status by "Announced" criteria')
 def select_announced_criteria(context):
@@ -77,3 +83,14 @@ def select_presale_criteria(context):
 def verify_product_cards(context):
     sleep(5)
     context.app.main_page.verify_product_cards()
+
+
+@when('Filter the sales status by "Out of stock" criteria')
+def select_out_of_stock_criteria(context):
+    context.app.main_page.select_out_of_stock_criteria()
+
+
+@then('Verify each deal card contains the "Out of stock" tag')
+def verify_project_cards(context):
+    sleep(5)
+    context.app.main_page.verify_project_cards()

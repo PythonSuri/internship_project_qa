@@ -17,10 +17,13 @@ class MainPage(Page):
     OFF_PLAN_BTN = (By.XPATH, "//*[@class='w-layout-grid menu_grid']//div[text()='Off-plan']")
     OFF_PLAN_PAGE_TITLE = (By.XPATH, "//div[contains(text(),'Total projects')]")
     SALES_STATUS_BTN = (By.CSS_SELECTOR, '[wized="saleStatusFilter"]')
+    ALL_FILTER_CRITERIA = By.CSS_SELECTOR, "option[value='Announced'], option[value='Presale(EOI)'], option[value='Start if Sales'], option[value='On sale'], option[value='Out of stock']"
     ANNOUNCED_BTN = By.CSS_SELECTOR, "option[value='Announced']"
     ANNOUNCED_TAGS = (By.XPATH, "//div[@wized='projectsListing']//div[text()='Announced']")
     PRESALE_BTN = By.CSS_SELECTOR, "option[value='Presale(EOI)']"
     PRESALE_TAGS = (By.XPATH, "//div[@wized='projectsListing']//div[text()='Presale(EOI)']")
+    OUTOFSTOCK_BTN =  By.CSS_SELECTOR, "option[value='Out of stock']"
+    OUTOFSTOCK_TAGS = (By.XPATH, "//div[@wized='projectsListing']//div[text()='Out of stock']")
 
     def verify_header_title(self):
         self.wait_for_element_appear(*self.HEADER_TITLE)
@@ -56,6 +59,7 @@ class MainPage(Page):
         sleep(2)
         self.wait_and_click(*self.SALES_STATUS_BTN)
 
+
     def select_announced_criteria(self):
         sleep(2)
         self.wait_for_element_appear(*self.ANNOUNCED_BTN)
@@ -63,7 +67,7 @@ class MainPage(Page):
 
     def verify_deal_cards(self):
         self.wait_for_element_appear(*self.ANNOUNCED_TAGS)
-        self.verify_text('Announced', *self.ANNOUNCED_TAGS)
+        self.verify_text('Announced',*self.ANNOUNCED_TAGS)
 
     def select_presale_criteria(self):
         sleep(2)
@@ -73,3 +77,12 @@ class MainPage(Page):
     def verify_product_cards(self):
         self.wait_for_element_appear(*self.PRESALE_TAGS)
         self.verify_text('Presale(EOI)', *self.PRESALE_TAGS)
+
+    def select_out_of_stock_criteria(self):
+        sleep(2)
+        self.wait_for_element_appear(*self.OUTOFSTOCK_BTN)
+        self.wait_and_click(*self.OUTOFSTOCK_BTN)
+
+    def verify_project_cards(self):
+        self.wait_for_element_appear(*self.OUTOFSTOCK_TAGS)
+        self.verify_text('Out of stock', *self.OUTOFSTOCK_TAGS)
