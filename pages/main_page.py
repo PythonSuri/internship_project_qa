@@ -28,8 +28,10 @@ class MainPage(Page):
     MARKET_PAGE_TITLE = (By.XPATH, "//div[@class='proparties_text_block mobile']//div[text()='Market']")
     ADD_COMPANY_BTN = (By.XPATH, "//*[@class='add-company-button w-inline-block']//div[text()='Add company']")
     ADD_COMPANY_PAGE_TITLE = (By.XPATH, "//*[@class='publish-button _1 w-button']")
-    VIEW_PAGE_TEMPLATE_BTN = (By.XPATH, "//*[@class='publish-button color w-button']")
-    SEND_MY_CV_BTN = (By.XPATH, "//*[@class='button-agency w-button']")
+    VIEW_PAGE_TEMPLATE_BTN =  (By.CSS_SELECTOR, 'a[href="https://soft.reelly.io/view-page-template?company=178"]')
+    PUBLISH_MY_COMPANY_BTN = (By.CSS_SELECTOR, 'a[href="/payment/personal"]')
+    SEND_MY_CV_BTN = (By.CSS_SELECTOR, 'a[href="#HR-manager"]')
+    SUBSCRIPTION_PAGE_TITLE = (By.XPATH, "//*[@class='pricing-header']")
 
 
     def verify_header_title(self):
@@ -109,12 +111,22 @@ class MainPage(Page):
         self.wait_for_element_appear(*self.ADD_COMPANY_PAGE_TITLE)
         self.verify_text('Publish my company', *self.ADD_COMPANY_PAGE_TITLE)
 
-    def click_view_page_template(self):
+    def verify_subscription_page_title(self):
         sleep(2)
+        self.wait_for_element_appear(*self.SUBSCRIPTION_PAGE_TITLE)
+        self.verify_text('Find your plan', *self.SUBSCRIPTION_PAGE_TITLE)
+
+    def click_view_page_template(self):
+        sleep(5)
         self.wait_for_element_appear(*self.VIEW_PAGE_TEMPLATE_BTN)
         self.wait_and_click(*self.VIEW_PAGE_TEMPLATE_BTN)
 
+    def click_publish_my_company(self):
+        sleep(5)
+        self.wait_for_element_appear(*self.PUBLISH_MY_COMPANY_BTN)
+        self.wait_and_click(*self.PUBLISH_MY_COMPANY_BTN)
+
     def verify_cv_button(self):
-        sleep(2)
+        sleep(3)
         self.wait_for_element_appear(*self.SEND_MY_CV_BTN)
         self.wait_and_click(*self.SEND_MY_CV_BTN)

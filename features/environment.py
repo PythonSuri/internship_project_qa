@@ -67,9 +67,8 @@ def browser_init(context, scenario_name):
     #
     # options = Options()
     # bstack_options = {
-    #     "os": "Windows",
-    #     "deviceName": "Samsung Galaxy S20 Ultra",
-    #     "osVersion": "11",
+    #     "os": "OS X",
+    #     "osVersion": "Monterey",
     #     'browserName': "chrome",
     #     "sessionName": "scenario_name"
     # }
