@@ -12,6 +12,16 @@ Feature: Tests for main page
      Then   Verify all deal cards display "For sale" tag
 
 
+  Scenario: User can click on Off-plan option and verify sales status
+     Given  Open Reelly sign in page
+     When   Enter a valid email and password combination
+     When   Click on Continue
+     When   Main page opens
+     When   Click on "Off-plan" at the left side menu
+     And    Off-plan page opens
+     Then   Verify "Sales status" filter button is available
+
+
   Scenario: User can filter Off-plan Sales status by Announced
      Given  Open Reelly sign in page
      When   Enter a valid email and password combination

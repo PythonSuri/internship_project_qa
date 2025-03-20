@@ -157,3 +157,8 @@ class MainPage(Page):
         sleep(3)
         self.wait_for_element_appear(*self.NEXT_STEP_BTN)
         self.verify_text('Next step ->', *self.NEXT_STEP_BTN)
+
+    def verify_sales_status_button(self):
+        sleep(3)
+        self.wait_for_element_appear(*self.SALES_STATUS_BTN)
+        self.wait_and_click(*self.SALES_STATUS_BTN)

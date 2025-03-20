@@ -158,6 +158,12 @@ def subscription_page_title(context):
 
 
 @then('Verify “Next step” button is available')
-def verify_upload_image_button(context):
+def verify_next_step_button(context):
     sleep(5)
-    context.app.main_page.verify_upload_image_button()
+    context.app.main_page.verify_next_step_button()
+
+
+@then('Verify "Sales status" filter button is available')
+def verify_sales_status_button(context):
+    sleep(5)
+    context.app.main_page.verify_sales_status_button()
