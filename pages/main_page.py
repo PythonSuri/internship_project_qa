@@ -32,6 +32,11 @@ class MainPage(Page):
     PUBLISH_MY_COMPANY_BTN = (By.CSS_SELECTOR, 'a[href="/payment/personal"]')
     SEND_MY_CV_BTN = (By.CSS_SELECTOR, 'a[href="#HR-manager"]')
     SUBSCRIPTION_PAGE_TITLE = (By.XPATH, "//*[@class='pricing-header']")
+    SETTINGS_BTN = (By.XPATH, "//*[@class='w-layout-grid menu_grid']//div[text()='Settings']")
+    VERIFICATION_BTN = (By.XPATH, "//*[@class='page-setting-block w-inline-block']//div[text()='Verification']")
+    VERIFICATION_PAGE_TITLE = (By.XPATH, "//*[@class='verify-step-block']//div[text()='Upload your photo']")
+    UPLOAD_IMG_BTN = (By.XPATH, "//*[@class='upload-button-2 w-embed']")
+    NEXT_STEP_BTN = (By.XPATH, "//a[@wized='nextButtonStep0']//div[text()='Next step ->']")
 
 
     def verify_header_title(self):
@@ -130,3 +135,25 @@ class MainPage(Page):
         sleep(3)
         self.wait_for_element_appear(*self.SEND_MY_CV_BTN)
         self.wait_and_click(*self.SEND_MY_CV_BTN)
+
+    def click_settings_opt(self):
+        sleep(5)
+        self.wait_and_click(*self.SETTINGS_BTN)
+
+    def click_verification_opt(self):
+        sleep(5)
+        self.wait_and_click(*self.VERIFICATION_BTN)
+
+    def verify_verification_page_title(self):
+        self.wait_for_element_appear(*self.VERIFICATION_PAGE_TITLE)
+        self.verify_text('Upload your photo', *self.VERIFICATION_PAGE_TITLE)
+
+    def verify_upload_image_button(self):
+        sleep(3)
+        self.wait_for_element_appear(*self.UPLOAD_IMG_BTN)
+        self.verify_text('Upload image', *self.UPLOAD_IMG_BTN)
+
+    def verify_next_step_button(self):
+        sleep(3)
+        self.wait_for_element_appear(*self.NEXT_STEP_BTN)
+        self.verify_text('Next step ->', *self.NEXT_STEP_BTN)

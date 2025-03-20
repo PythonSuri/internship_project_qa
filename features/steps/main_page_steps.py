@@ -101,6 +101,27 @@ def click_publish_my_company(context):
     context.app.main_page.click_publish_my_company()
 
 
+@when('Click on "Settings" at the left side menu')
+def click_settings_opt(context):
+    context.app.main_page.click_settings_opt()
+
+
+@when('Click on the Verification option')
+def click_verification_opt(context):
+    context.app.main_page.click_verification_opt()
+
+
+@when('Verification page opens')
+def verify_verification_page_title(context):
+    context.app.main_page.verify_verification_page_title()
+
+
+@when('Verify “Upload image” button is available')
+def verify_upload_image_button(context):
+    sleep(5)
+    context.app.main_page.verify_upload_image_button()
+
+
 @then('Verify all deal cards display "For sale" tag')
 def verify_filter_results(context):
     sleep(5)
@@ -134,3 +155,9 @@ def verify_cv_button(context):
 def subscription_page_title(context):
     sleep(5)
     context.app.main_page.verify_subscription_page_title()
+
+
+@then('Verify “Next step” button is available')
+def verify_upload_image_button(context):
+    sleep(5)
+    context.app.main_page.verify_upload_image_button()

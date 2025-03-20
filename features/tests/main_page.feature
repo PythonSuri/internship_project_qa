@@ -72,3 +72,15 @@ Feature: Tests for main page
      When   Add company page opens
      And    Scroll down and click on "Publish my company" button
      Then   Verify "Subscription" page opens
+
+
+    Scenario: User can click on verifications settings option and verify the right page opens
+     Given  Open Reelly sign in page
+     When   Enter a valid email and password combination
+     When   Click on Continue
+     When   Main page opens
+     When   Click on "Settings" at the left side menu
+     When   Click on the Verification option
+     When   Verification page opens
+     And    Verify “Upload image” button is available
+     Then   Verify “Next step” button is available
